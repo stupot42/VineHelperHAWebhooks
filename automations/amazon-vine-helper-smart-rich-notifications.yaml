@@ -1,0 +1,46 @@
+# --- Vine Helper Home Assistant Webhook Notifications V1.0 ---
+# --- Written by Stuart Feltham @stupot42 ---
+# --- Last Update: 5/11/2025 ---
+# --- Tested with VH Version 3.8.4 ---
+alias: "Amazon Vine: Smart Rich notification"
+description: "Webhook triggered by VH to notify user of new items"
+triggers:
+  # --- We need a webhook to trigger our automation from the Vine Helper Settings Discord Tab ---
+  - trigger: webhook
+    allowed_methods:
+      - POST
+      - PUT
+    local_only: false
+    # *** CHANGE THE WEBHOOK ID ***
+    # The webhook_id needs to be unique and ideally something that can't be guessed. 
+    # It will be accessible to anyone outside your network and should be treated like a password.
+    # DO NOT SHARE IT WITH OTHERS
+    # This resource can help generate ids:
+    # https://www.guidgenerator.com/online-guid-generator.aspx
+    webhook_id: "Abcdefghijklmnopqrstuvwxyz" # <-- Change this!
+conditions: []
+actions:
+  # *** CHANGE YOUR NOTIFY ENTITY ***
+  # Change your entity to point to your phone.
+  # See guidance 
+  - action: notify.mobile_app_iphone # <-- Change this!
+    metadata: {}
+    data:
+      title: "{{ trigger.json.content }}"
+      message: "{{ trigger.json.embeds[0].title }}"
+      data:
+        image: "{{ trigger.json.embeds[0].thumbnail.url }}"
+        url: | # <-- Change url to clickAction: if using an Android device
+          {% set content = trigger.json.content %}
+
+          {% if content == "New item in RFY!" %}
+            https://www.amazon.co.uk/vine/vine-items?queue=potluck
+
+          {% else %}
+            {% set title = trigger.json.embeds[0].title %}
+            {% set truncated_title = title | truncate(50, killwords=False, end='') %}
+            https://www.amazon.co.uk/vine/vine-items?search={{ truncated_title | urlencode }}
+
+          {% endif %}
+mode: queued
+max: 10
