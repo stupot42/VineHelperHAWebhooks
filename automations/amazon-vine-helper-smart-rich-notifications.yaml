@@ -1,7 +1,15 @@
 # --- Vine Helper Home Assistant Webhook Notifications V1.0 ---
+# --- https://github.com/stupot42/VineHelperHAWebhooks ---
 # --- Written by Stuart Feltham @stupot42 ---
 # --- Last Update: 5/11/2025 ---
 # --- Tested with VH Version 3.8.4 ---
+#
+#
+# --- YOU CAN USE THIS ONE WEBHOOK WITH ALL OPTIONS ON THE VH DISCORD TAB WITHOUT CHANGING THE CODE ---
+# --- THE EXPECTED JSON PAYLOAD CAN BE FOUND IN THE README ---
+# --- IF YOU CHANGE THE PAYLOAD IN VINE HELPER YOU WILL NEED TO UPDATE THE NOTIFICATION ACTION TO TAKE THIS INTO ACCOUNT ---
+#
+#
 alias: "Amazon Vine: Smart Rich notification"
 description: "Webhook triggered by VH to notify user of new items"
 triggers:
@@ -15,6 +23,7 @@ triggers:
     # The webhook_id needs to be unique and ideally something that can't be guessed. 
     # It will be accessible to anyone outside your network and should be treated like a password.
     # DO NOT SHARE IT WITH OTHERS
+    # Change the contents between the inverted commas.
     # This resource can help generate ids:
     # https://www.guidgenerator.com/online-guid-generator.aspx
     webhook_id: "Abcdefghijklmnopqrstuvwxyz" # <-- Change this!
