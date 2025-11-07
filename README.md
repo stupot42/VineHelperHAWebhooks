@@ -140,31 +140,31 @@ max: 10
 
 4.  Edit the Automation:
 
-Anywhere you see the comment '# <-- Change this!' at the end of a line you should check to see if you need to update the content.
+Anywhere you see the comment `# <-- Change this!` at the end of a line you should check to see if you need to update the content.
 
    * Change the Webhook_id
    This is the code that Vine Helper sends to Home Assistant to make it fire the notification.
    I recommend using a GUID generator to create a random string that you can use, eg. [https://www.guidgenerator.com/online-guid-generator.aspx](https://www.guidgenerator.com/online-guid-generator.aspx).
 
    * Change the device you wish to notify.
-   If you aren't sure what your notify service name is, in a new tab open a new Home Assistant dashboard and in the left menu go to __Developer tools__ > __Services__ and type "notify" into the __Service__ drop down box at the top of the page. You will see a list of all the devices you can notify. Make a note of the one you wish to notify. Companion App devices will start with 'notify.mobile_app'.
-   Update the Automation to notify this device. E.g. 'notify.mobile_app_iphone'
+   If you aren't sure what your notify service name is, in a new tab open a new Home Assistant dashboard and in the left menu go to __Developer tools__ > __Services__ and type "notify" into the __Service__ drop down box at the top of the page. You will see a list of all the devices you can notify. Make a note of the one you wish to notify. Companion App devices will start with `notify.mobile_app`.
+   Update the Automation to notify this device. E.g. `notify.mobile_app_iphone`
 
    * Check the URL option.
-   This code is formatted to work on an iOS device (iPhone or iPad). If you are using an Android device you will need to change 'url: |' to be 'clickAction: |' in order for the URLs to work. 
+   This code is formatted to work on an iOS device (iPhone or iPad). If you are using an Android device you will need to change `url: |` to be `clickAction: |` in order for the URLs to work. 
 
 5. Note down the webhook URL
 
-Your webhook URL is the address that Vine Helper is going to call when an item is found. The URL is made up of your remote Home Assitant URL, followed by '/api/webhook/' and the webhook_id you chose.
+Your webhook URL is the address that Vine Helper is going to call when an item is found. The URL is made up of your remote Home Assitant URL, followed by `/api/webhook/` and the webhook_id you chose.
 
 IF your Home Assistant dashboard was normally accessed at:
-"https://arandomstring.ui.nabu.casa/lovelace/default_view" 
+`https://arandomstring.ui.nabu.casa/lovelace/default_view`
 and your webhook_id was: 
-"Abcdefghijklmnopqrstuvwxyz"
+`Abcdefghijklmnopqrstuvwxyz`
 then your webhook URL would be:
-"https://arandomstring.ui.nabu.casa" + "/api/webhook/" + "Abcdefghijklmnopqrstuvwxyz"
+`https://arandomstring.ui.nabu.casa` + `/api/webhook/` + `Abcdefghijklmnopqrstuvwxyz`
 or
-"https://arandomstring.ui.nabu.casa/api/webhook/Abcdefghijklmnopqrstuvwxyz"
+`https://arandomstring.ui.nabu.casa/api/webhook/Abcdefghijklmnopqrstuvwxyz`
 
 6. Save the Automation:
 
@@ -184,9 +184,9 @@ Your new automation is now created, named "Amazon Vine: Smart Rich notification"
 
 You will now need to wait for a drop to see if your automation works. 
 
-If you're so inclined you can use a programme like Postman to test or 'curl' from the command line. 
+If you're so inclined you can use a programme like Postman to test or `curl` from the command line. 
 
-Alternatively you can add '- PUT' after line 20 of the automation and call the URL from a browser to see if it triggers.
+Alternatively you can add `- PUT` after line 20 of the automation and call the URL from a browser to see if it triggers.
 
 ## Important notes
 
