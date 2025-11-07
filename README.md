@@ -186,7 +186,7 @@ You will now need to wait for a drop to see if your automation works.
 
 If you're so inclined you can use a programme like Postman to test or `curl` from the command line. 
 
-Alternatively you can add `- PUT` after line 20 of the automation and call the URL from a browser to see if it triggers.
+Alternatively you can add `- GET` after line 20 of the automation and call the URL from a browser to see if it triggers.
 
 
 ## Important notes
