@@ -178,7 +178,7 @@ Your new automation is now created, named "Amazon Vine: Smart Rich notification"
 
 2. Check the boxes for the categories of items you would like to be notified about.
 
-3. Paste the Webhook URL you created above into the "Webhook URL" bpx for each of your chosen categories. 
+3. Paste the Webhook URL you created above into the "Webhook URL" box for each of your chosen categories. 
 
 ### Now Wait
 
@@ -193,7 +193,7 @@ Alternatively you can add `- PUT` after line 20 of the automation and call the U
 * The Webhook has to work remotely. It ***must not be*** local only!
 * Do not share your webhook_id or webhook URL with anyone else. Treat it like a password.
 * The automation is expecting a JSON payload formatted as follows:
-  ```JSON
+```JSON
 {
 "content": "New item in RFY!",
 "embeds": [{
@@ -204,5 +204,5 @@ Alternatively you can add `- PUT` after line 20 of the automation and call the U
 	}
 }]
 }
-  ```
+```
   If you are a tier 3 Vine Helper supporter and change the JSON you will also need to update the automation accordingly.
