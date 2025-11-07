@@ -6,7 +6,7 @@ Notifications are near instant.
 
 ## What does it do?
 
-This Webhook will send a notification from Home Assistant of a new item on Vine. The automation checks what category of item it is (eg. RYI, Keyword match) and formats the output accordingly.
+This Webhook will send a notification from Home Assistant of a new item on Vine. The automation checks what category of item it is (eg. RFY, Keyword match) and formats the output accordingly.
 
 The notification will have the title of the category, E.g. "New item in RFY!", the name of the item, the photo of the item, and the notification will link to the item.
 
