@@ -188,8 +188,10 @@ If you're so inclined you can use a programme like Postman to test or `curl` fro
 
 Alternatively you can add `- PUT` after line 20 of the automation and call the URL from a browser to see if it triggers.
 
+
 ## Important notes
 
+* When you open a notification for the first time, it will open Home Assistant and ask if you want to open the link. If you choose "always open" it will skip straight to the link in future.
 * The Webhook has to work remotely. It ***must not be*** local only!
 * Do not share your webhook_id or webhook URL with anyone else. Treat it like a password.
 * The automation is expecting a JSON payload formatted as follows:
